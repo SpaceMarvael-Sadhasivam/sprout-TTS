@@ -3,12 +3,29 @@ from config import *
 from core.pdf_extractor import extract_text
 from core.text_chunker import chunk_text
 from core.text_optimizer import optimize_for_tts
+from core.pause_injector import inject_pauses
 from core.tts_engine import synthesize_speech
+
+
+RAW_LOG_DIR = "raw_text_logs"
+OPTIMIZED_LOG_DIR = "optimized_text_logs"
+
+
+def save_text(directory, filename, content):
+    os.makedirs(directory, exist_ok=True)
+
+    file_path = os.path.join(directory, filename)
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(content)
+
+    return file_path
 
 
 def process_pdf(pdf_path, pdf_name):
 
     print(f"\nProcessing: {pdf_name}")
+    print(f"Extracting text from: {pdf_path}")
 
     raw_text = extract_text(pdf_path)
 
@@ -16,10 +33,31 @@ def process_pdf(pdf_path, pdf_name):
         print("❌ No text extracted → Skipping")
         return
 
+    # ✅ Save RAW extraction
+    raw_log_file = save_text(
+        RAW_LOG_DIR,
+        f"{pdf_name}_raw.txt",
+        raw_text
+    )
+
+    print(f"✔ Raw text saved → {raw_log_file}")
+
     print("Optimizing text via Gemini...")
     clean_text = optimize_for_tts(raw_text)
 
-    chunks = chunk_text(clean_text, CHUNK_SIZE)
+    # ✅ Save OPTIMIZED text
+    optimized_log_file = save_text(
+        OPTIMIZED_LOG_DIR,
+        f"{pdf_name}_optimized.txt",
+        clean_text
+    )
+
+    print(f"✔ Optimized text saved → {optimized_log_file}")
+
+    print("Injecting natural pauses...")
+    paused_text = inject_pauses(clean_text)
+
+    chunks = chunk_text(paused_text, CHUNK_SIZE)
 
     print(f"Total chunks: {len(chunks)}")
 
@@ -46,6 +84,9 @@ if __name__ == "__main__":
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
     pdf_files = [f for f in os.listdir(PDF_FOLDER) if f.lower().endswith(".pdf")]
+
+    if not pdf_files:
+        raise RuntimeError("No PDF files found.")
 
     print(f"Found {len(pdf_files)} PDF(s)")
 

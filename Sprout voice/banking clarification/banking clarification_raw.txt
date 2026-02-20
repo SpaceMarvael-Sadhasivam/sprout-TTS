@@ -1,0 +1,239 @@
+Banking course - Reasoning Ability
+Alphabet Series (IBPS Pattern)
+IBPS PO & Clerk Level
+Alphabet Series is a high-frequency topic in the Reasoning Ability section of IBPS PO and Clerk
+Prelims. It tests:
+● Pattern recognition
+● Logical sequencing
+● Positional awareness
+● Speed with accuracy
+Most questions are direct scoring questions if concepts are strong.
+Alphabet Position Mastery
+Before solving any series, strong command over letter positions is mandatory.
+● A = 1
+● B = 2
+● C = 3
+● …
+● Z = 26
+Reverse positions:
+● Z = 1
+● Y = 2
+● X = 3
+● …
+● A = 26
+Important quick references:
+● EJOTY Rule → E(5), J(10), O(15), T(20), Y(25)
+● Vowels positions → A(1), E(5), I(9), O(15), U(21)
+Shortcut approach:
+● Convert letters into numbers first.
+● Identify numerical pattern.
+● Convert back to letter.
+This avoids guesswork.
+Constant Increment / Decrement Pattern
+This is the most basic and common pattern.
+Letters move with a fixed gap.
+Example:
+A, D, G, J, ?
+Positions:
+1, 4, 7, 10
+Gap = +3
+Next:
+13 → M
+Similarly, decreasing pattern:
+Z, X, V, T, ?
+26, 24, 22, 20
+Gap = –2
+Key recognition tip:
+If difference remains constant → it is a fixed arithmetic progression.
+Increasing / Decreasing Gap Pattern
+The difference between letters increases or decreases stepwise.
+Example:
+B, E, I, N, ?
+2, 5, 9, 14
+Differences:
++3, +4, +5
+Next difference:
++6
+14 + 6 = 20 → T
+Recognition rule:
+● Check if differences form sequence like +2, +3, +4
+● Or –3, –4, –5
+Example (decreasing):
+Z, V, Q, K, ?
+26, 22, 17, 11
+–4, –5, –6
+Next:
+–7 → 4 → D
+These are very common in IBPS PO.
+Alternate Term Pattern
+Series may consist of two interlinked sequences.
+Example:
+A, D, C, F, E, ?
+Split into:
+Odd positions:
+A, C, E → +2
+Even positions:
+D, F → +2
+Next odd:
+G
+Always check alternate positions if pattern looks inconsistent.
+Another example:
+A, Z, B, Y, C, ?
+Odd:
+A, B, C
+Even:
+Z, Y
+Next even:
+X
+Alternate patterns are extremely common in prelims.
+Reverse Alphabet Pairing
+Letters move in opposite direction simultaneously.
+Example:
+A, X, B, W, C, ?
+A → forward
+X → backward
+Pattern:
+1, 24
+2, 23
+3, 22
+Next:
+D (4) and V (22)
+These patterns often combine forward + backward logic.
+Opposite Letter Mapping (A–Z Type)
+Each letter has an opposite in alphabet.
+Opposite formula:
+Opposite position = 27 – original position
+Example:
+A(1) → 27 – 1 = 26 → Z
+B(2) → 27 – 2 = 25 → Y
+C(3) → 27 – 3 = 24 → X
+Common IBPS pattern:
+A, Z, B, Y, C, ?
+Opposite mapping logic used.
+Shortcut:
+Remember pairs:
+A–Z
+B–Y
+C–X
+D–W
+E–V
+Square / Cube Position Pattern
+Positions may follow mathematical rules.
+Example:
+● A (1² = 1)
+● D (2² = 4)
+● I (3² = 9)
+● P (4² = 16)
+Next:
+5² = 25 → Y
+Similarly, cube pattern:
+A (1³ = 1)
+H (2³ = 8)
+27 exceeds 26 → adjust using cycle
+Recognition clue:
+If gaps are irregular but growing rapidly → check square/cube.
+Mixed Alphanumeric Pattern
+Letters and numbers move simultaneously.
+Example:
+A1, C3, E5, G7, ?
+Letters:
++2
+Numbers:
++2
+Next:
+I9
+Advanced type:
+A26, B25, C24, ?
+Letter increasing
+Number decreasing
+Answer:
+D23
+These appear often in IBPS PO.
+Cycle Pattern (After Z Restart)
+Alphabet is circular.
+After Z (26), next becomes A (1).
+Example:
+Y, A, C, E, ?
+25, 1, 3, 5
+Pattern:
++2
+Next:
+7 → G
+Adjustment rule:
+If position > 26
+Subtract 26
+Example:
+33 – 26 = 7
+This is called mod 26 logic.
+Symmetrical Pattern
+Series mirrors itself.
+Example:
+A, C, F, C, A
+Pattern:
++2, +3, –3, –2
+Mirror around middle term.
+These are less frequent but tricky.
+Word Rearrangement Logic
+Letters of a word are rearranged alphabetically.
+Example:
+TIMER
+Arrange alphabetically:
+E I M R T
+Questions may ask:
+● What is the new position of T?
+● Which letter is 3rd from right after arrangement?
+Method:
+1. Rearrange alphabetically.
+2. Compare original vs new positions.
+Alphabet Test – Position Based Questions
+In word-based problems:
+Example:
+BANKING
+Count letters between A and G.
+Step 1:
+Write word properly.
+Step 2:
+Locate positions.
+Step 3:
+Count letters strictly between.
+Another type:
+Count vowels between two consonants.
+Important:
+Do not include boundary letters unless asked.
+Pair Counting Logic
+In word “EDUCATION”
+Check pairs having same gap as in alphabet.
+Method:
+1. Compare each adjacent pair.
+2. Calculate gap.
+3. Match with actual alphabet gap.
+These questions require careful checking.
+Advanced Recognition Strategy
+When solving series:
+● Step 1: Convert to numbers.
+● Step 2: Write differences above letters.
+● Step 3: Check alternate patterns.
+● Step 4: Check reverse pattern.
+● Step 5: Check mathematical patterns.
+● Step 6: Check alphanumeric interaction.
+Never assume a pattern after only two terms.
+Common IBPS PO Traps
+● Pattern changes after 3rd term.
+● Alternate + increasing gap combined.
+● Reverse mapping hidden inside.
+● Cycle adjustment forgotten.
+● Wrong counting due to panic.
+Speed Improvement Tips
+● Memorize alphabet positions completely.
+● Practice writing A–Z mentally in 5 seconds.
+● Practice reverse mapping daily.
+● Solve 20 timed questions per day.
+● Identify patterns within 15 seconds.
+Exam Weightage Insight
+In IBPS PO & Clerk Prelims:
+● 3–5 questions from Alphabet Series / Alphabet Test
+● Usually easy-moderate
+● Highly scoring
+● Time per question: 30–45 seconds
+In Mains:
+Appears inside puzzles or coding-decoding combinations.

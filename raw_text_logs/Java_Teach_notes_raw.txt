@@ -1,0 +1,136 @@
+Data Types in Java
+Introduction
+Before we write programs in Java, we must understand something very important.
+What type of data are we storing?
+In programming, data types define:
+ What kind of value a variable can store
+ How much memory it uses
+ What operations can be performed
+Java is a strongly typed language.
+That means:
+You must declare the data type before using a variable.
+Unlike Python, Java does not guess the type automatically.
+What is a Data Type?
+A data type tells the computer:
+“What type of value am I storing?”
+For example:
+ 10 → integer
+ 3.14 → decimal
+ 'A' → character
+ true → boolean
+ "Hello" → string
+In Java, we must clearly specify it.
+Example:
+int age = 20;
+Here:
+ int → data type
+ age → variable name
+ 20 → value
+Types of Data Types in Java
+Java has two main categories:
+1️.Primitive Data Types
+2️.Non-Primitive Data Types
+Primitive → stores actual value
+Non-Primitive → stores reference (memory address)
+Now let us understand primitive types first.
+Primitive Data Types
+Java has 8 primitive data types.
+Let us learn them one by one.
+byte
+ Used to store small whole numbers
+ Size: 1 byte
+ Range: -128 to 127
+Example:
+byte number = 100;
+Used when memory saving is important.
+short
+ Slightly larger than byte
+ Size: 2 bytes
+short value = 10000;
+int (Most Common)
+ Used for whole numbers
+ Size: 4 bytes
+ Most commonly used integer type
+int age = 25;
+Usually we use int for normal numbers.
+long
+ Used for very large numbers
+ Size: 8 bytes
+long population = 8000000000L;
+Notice:
+We add L at the end.
+float
+ Used for decimal numbers
+ Size: 4 bytes
+float price = 99.99f;
+Important:
+We must add f at the end.
+double (Most Common for Decimals)
+ Used for decimal numbers
+ Size: 8 bytes
+ More precise than float
+double salary = 45678.89;
+Most developers prefer double.
+char
+ Stores a single character
+ Uses single quotes
+ Size: 2 bytes
+char grade = 'A';
+Important:
+Only one character allowed.
+boolean
+ Stores true or false
+ Used for conditions
+boolean isActive = true;
+Non-Primitive Data Types
+Non-primitive types include:
+ String
+ Arrays
+ Classes
+ Objects
+Example:
+String name = "Rakshitha";
+Important:
+Primitive types store actual value.
+Non-primitive types store memory reference.
+Type Casting
+Sometimes we convert one data type to another.
+There are two types:
+Widening (Automatic)
+Small type → Bigger type
+int x = 10;
+double y = x;
+No data loss.
+Narrowing (Manual)
+Bigger type → Smaller type
+double a = 10.5;
+int b = (int) a;
+Decimal part is removed.
+Mini Practice Activity
+Create a Java program with:
+ int age
+ double height
+ char grade
+ boolean isStudent
+ String name
+Print all values.
+Example:
+int age = 20;
+double height = 5.8;
+char grade = 'A';
+boolean isStudent = true;
+String name = "Ravi";
+System.out.println("Name: " + name);
+System.out.println("Age: " + age);
+System.out.println("Height: " + height);
+System.out.println("Grade: " + grade);
+System.out.println("Student: " + isStudent);
+Summary :
+Today we learned:
+ What is a data type
+ Java is strongly typed
+ 8 primitive data types
+ Non-primitive types
+ Type casting
+Now you understand how Java stores data internally.
+In the next lesson, we will learn about operators in Java.

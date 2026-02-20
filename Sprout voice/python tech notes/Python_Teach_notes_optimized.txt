@@ -1,0 +1,96 @@
+Welcome to Kairos AI Learning. Today we are going to start our Python journey. In this session, we will understand what Python is, why Python is important, and what variables are in Python.
+
+Let's begin.
+
+## What is Programming?
+
+Before learning Python, we must understand something important: What is programming? Programming means giving instructions to a computer so it can perform tasks. For example, to display a message, calculate total marks, store student details, build a website, or create a chatbot.
+
+A computer does not understand human language. It understands instructions written in a programming language. That language acts as a bridge between humans and computers. Python is one such language.
+
+## What is Python?
+
+Python is a high-level programming language. High-level means it is easy for humans to read and understand. Python was created in 1991 by Guido van Rossum.
+
+## Why is Python popular?
+
+Python is popular due to its simple and readable syntax, requiring fewer lines of code, its huge global community, and its use in modern technologies.
+
+Python is used in many fields, including web development, Artificial Intelligence, Machine Learning, Data Science, automation, and game development. When you learn Python, you are learning a powerful, industry-level skill.
+
+## Your First Python Program
+
+Let us write our first Python program: you type `print`, then within parentheses and quotes, `Hello World`.
+
+### Explanation:
+
+*   The `print()` command is a built-in function.
+*   `Hello World` is a string.
+*   Quotes are used to represent text.
+
+The output will be: `Hello World`
+
+If we write `print` with the number `10` inside the parentheses, it prints the number 10.
+
+### Important:
+
+Text requires quotes. Numbers do not require quotes.
+
+## What is a Variable?
+
+A variable is a container used to store data. Think of it like a labeled box.
+
+### Example:
+
+Let's say `age` is assigned the value `20`.
+
+Here:
+
+*   `age` is the variable name.
+*   The equal sign is the assignment operator.
+*   `20` is the value stored.
+
+Now we can use it. Typing `print` with `age` in parentheses will produce:
+
+`20`
+
+## Variable Naming Rules
+
+Here are some important rules for variable names:
+
+1.  A variable must start with a letter or an underscore. For instance, `name` or `_score` are valid, but `1age` is not.
+2.  It cannot contain spaces. `student_name` is valid, but `student name` is not.
+3.  You cannot use reserved keywords like `if` or `while`.
+4.  Variable names are case-sensitive. So, `age` and `Age` refer to different variables.
+
+## Multiple Variables Example
+
+Let's look at an example. We can set `name` equal to the string `Arun`, `age` equal to `18`, and `city` equal to the string `Coimbatore`.
+
+Then, we can print statements like:
+`My name is`, followed by the `name` variable.
+`I am`, followed by the `age` variable, then `years old`.
+And `I live in`, followed by the `city` variable.
+
+Using a formatted string, also known as an `f-string`, we can print:
+`My name is`, then curly braces around `name`, `and I am`, curly braces around `age`, `years old.`
+
+## Dynamic Typing in Python
+
+Python is dynamically typed. For example, you can set `x` equal to the number `10`, and then later, `x` can be set equal to the string `Hello`. Python allows changing the data type of a variable. You do not need to declare data types, like in some other languages.
+
+## Mini Practice Activity
+
+Try this small activity: Create three variables. The first is `student_name`, the second is `student_age`, and the third is `is_present`. Then, print them all in one sentence.
+
+### Example:
+
+We can set `student_name` equal to `Ravi`, `student_age` equal to `15`, and `is_present` equal to `True`.
+
+Then, using an `f-string`, we print: `student_name` is `student_age` years old. Present status: `is_present`.
+
+## Summary
+
+Today we learned: what programming is, what Python is, why Python is popular, how to write your first Python program, what variables are, variable naming rules, dynamic typing in Python, and how to use formatted strings.
+
+In the next lesson, we will explore data types in detail.
