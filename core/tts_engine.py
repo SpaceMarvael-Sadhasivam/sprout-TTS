@@ -1,16 +1,46 @@
-import time
-from gtts import gTTS
+import requests
+import os
+from config import DEEPGRAM_API_KEY, DEEPGRAM_VOICE
 
-def synthesize_speech(text, output_file, language_code, retries=3):
+DEEPGRAM_URL = "https://api.deepgram.com/v1/speak"
 
-    for attempt in range(retries):
-        try:
-            tts = gTTS(text=text, lang=language_code, slow=False)
-            tts.save(output_file)
-            return
+headers = {
+    "Authorization": f"Token {DEEPGRAM_API_KEY}",
+    "Content-Type": "application/json"
+}
 
-        except Exception as e:
-            print(f"TTS retry {attempt+1}: {e}")
-            time.sleep(2)
 
-    raise RuntimeError("gTTS synthesis failed after retries")
+def synthesize_speech(text, output_file):
+
+    if not text or not text.strip():
+        raise RuntimeError("Empty text passed to TTS")
+
+    payload = {
+        "text": text
+    }
+
+    # Deepgram Aura models REQUIRE full model identifiers
+    params = {
+        "model": f"aura-2-{DEEPGRAM_VOICE}",
+        "encoding": "mp3"
+    }
+
+    response = requests.post(
+        DEEPGRAM_URL,
+        headers=headers,
+        json=payload,
+        params=params
+    )
+
+    if response.status_code != 200:
+        raise RuntimeError(
+            f"Deepgram TTS Error | Status: {response.status_code} | "
+            f"Response: {response.text}"
+        )
+
+    os.makedirs(os.path.dirname(output_file), exist_ok=True)
+
+    with open(output_file, "wb") as f:
+        f.write(response.content)
+
+    return output_file

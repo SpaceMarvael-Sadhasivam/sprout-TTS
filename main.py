@@ -1,11 +1,10 @@
 import os
-from config import *
+from config import PDF_FOLDER, OUTPUT_DIR, CHUNK_SIZE
 from core.pdf_extractor import extract_text
 from core.text_chunker import chunk_text
 from core.text_optimizer import optimize_for_tts
 from core.pause_injector import inject_pauses
 from core.tts_engine import synthesize_speech
-
 
 RAW_LOG_DIR = "raw_text_logs"
 OPTIMIZED_LOG_DIR = "optimized_text_logs"
@@ -13,7 +12,6 @@ OPTIMIZED_LOG_DIR = "optimized_text_logs"
 
 def save_text(directory, filename, content):
     os.makedirs(directory, exist_ok=True)
-
     file_path = os.path.join(directory, filename)
 
     with open(file_path, "w", encoding="utf-8") as f:
@@ -29,11 +27,10 @@ def process_pdf(pdf_path, pdf_name):
 
     raw_text = extract_text(pdf_path)
 
-    if not raw_text.strip():
+    if not raw_text or not raw_text.strip():
         print("❌ No text extracted → Skipping")
         return
 
-    # ✅ Save RAW extraction
     raw_log_file = save_text(
         RAW_LOG_DIR,
         f"{pdf_name}_raw.txt",
@@ -43,9 +40,20 @@ def process_pdf(pdf_path, pdf_name):
     print(f"✔ Raw text saved → {raw_log_file}")
 
     print("Optimizing text via Gemini...")
-    clean_text = optimize_for_tts(raw_text)
 
-    # ✅ Save OPTIMIZED text
+    try:
+        clean_text = optimize_for_tts(raw_text)
+
+        if not clean_text or not clean_text.strip():
+            raise RuntimeError("Optimizer returned empty text")
+
+        print("✔ Optimizer succeeded")
+
+    except Exception as e:
+        print(f"⚠ Optimizer failed → Using raw text | {e}")
+        clean_text = raw_text
+
+    # ✅ ALWAYS SAVE optimized file (even fallback)
     optimized_log_file = save_text(
         OPTIMIZED_LOG_DIR,
         f"{pdf_name}_optimized.txt",
@@ -57,11 +65,25 @@ def process_pdf(pdf_path, pdf_name):
     print("Injecting natural pauses...")
     paused_text = inject_pauses(clean_text)
 
+    if not paused_text or not paused_text.strip():
+        print("❌ Pause injector returned empty text → Skipping")
+        return
+
+    print(f"Final text length: {len(paused_text)} characters")
+
     chunks = chunk_text(paused_text, CHUNK_SIZE)
+
+    if not chunks:
+        print("❌ Chunker returned no chunks → Skipping")
+        return
 
     print(f"Total chunks: {len(chunks)}")
 
     for i, chunk in enumerate(chunks):
+
+        if not chunk.strip():
+            print(f"⚠ Skipping empty chunk {i}")
+            continue
 
         output_file = os.path.join(
             OUTPUT_DIR,
@@ -70,11 +92,11 @@ def process_pdf(pdf_path, pdf_name):
 
         print(f"Generating: {output_file}")
 
-        synthesize_speech(
-            text=chunk,
-            output_file=output_file,
-            language_code=LANGUAGE_CODE
-        )
+        try:
+            synthesize_speech(chunk, output_file)
+        except Exception as e:
+            print(f"❌ TTS failed for chunk {i}: {e}")
+            return
 
     print("✅ Done.")
 
@@ -83,7 +105,13 @@ if __name__ == "__main__":
 
     os.makedirs(OUTPUT_DIR, exist_ok=True)
 
-    pdf_files = [f for f in os.listdir(PDF_FOLDER) if f.lower().endswith(".pdf")]
+    if not os.path.exists(PDF_FOLDER):
+        raise RuntimeError(f"PDF folder not found: {PDF_FOLDER}")
+
+    pdf_files = [
+        f for f in os.listdir(PDF_FOLDER)
+        if f.lower().endswith(".pdf")
+    ]
 
     if not pdf_files:
         raise RuntimeError("No PDF files found.")

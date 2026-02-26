@@ -9,21 +9,25 @@ model = genai.GenerativeModel(MODEL_NAME)
 def optimize_for_tts(raw_text):
 
     prompt = f"""
-Rewrite the following text so it sounds natural when read aloud by a human narrator.
+Rewrite the following content as continuous spoken teaching by a human instructor.
 
-Narration rules:
+You MUST fundamentally change how the text is expressed.
 
-- Preserve the original meaning exactly
-- Improve sentence flow and punctuation for speech
-- Remove visual-only artifacts (page numbers, headers, footers)
-- Ignore or eliminate special characters that would sound unnatural when spoken
-- Do not read symbols literally unless they are semantically important
-- Expand abbreviations only when necessary for clarity
-- Format the text the way a person would naturally read a book or document aloud
-- Do NOT add new information
-- Output only the rewritten narration text
+Strict enforcement rules:
 
-Text:
+- Completely eliminate ALL headings, labels, bullet points, list markers, and section names
+- Do NOT preserve original sentence structure
+- Do NOT keep original phrasing
+- Reconstruct the explanation as natural lecture speech
+- Present ideas as if verbally teaching students step-by-step
+- Use conversational teaching language
+- Expand compact statements into spoken reasoning
+- Preserve ALL information exactly
+- Do NOT summarize
+- Do NOT shorten
+- Output ONLY the lecture narration
+
+Content:
 {raw_text}
 """
 

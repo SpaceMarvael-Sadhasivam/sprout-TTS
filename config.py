@@ -1,17 +1,15 @@
 PDF_FOLDER = r"D:\Intern\sprouts TTS\learning pdf"
 OUTPUT_DIR = "output_audio"
 
-LANGUAGE_CODE = "en"
-CHUNK_SIZE = 10000000
+RAW_LOG_DIR = "raw_text_logs"
+OPTIMIZED_LOG_DIR = "optimized_text_logs"
 
-GEMINI_API_KEY = "AIzaSyBceUggAft8_xA9e9uPziwnYp7QFnecEqI"
+CHUNK_SIZE =800000
+
+GEMINI_API_KEY = "AIzaSyAHm8ru6OWSWsx2PxQYkEwZ6CJO3zY8mKE"
 MODEL_NAME = "gemini-2.5-flash"
 
-PDF_FOLDER = r"D:\Intern\sprouts TTS\learning pdf"
-OUTPUT_DIR = "output_audio"
+DEEPGRAM_API_KEY = "b256f4d4857d4b9d8508186f6702f73ba7b0bf77"
 
-CHUNK_SIZE = 3000
-
-ELEVENLABS_API_KEY = "sk_906564e4ad6e2107dfb4c34bdff4e4ce24fbc750060d5c87"
-
-VOICE_ID = "Rachel"  
+# Voice / model abstraction
+DEEPGRAM_VOICE = "asteria-en"
